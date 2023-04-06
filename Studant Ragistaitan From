@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <style>
+         html {
+            background: rgba(233, 225, 225, 0.479);
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+            width: 75vw;
+            background: #6fd5e659;
+            padding: 25px;
+        }
+        
+        .container h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(59, 55, 55);
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+        
+        .container h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(59, 55, 55);
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        
+        .form-wrapper {
+            margin: 15px;
+            width: 100%;
+        }
+        
+        .form {
+            width: 90%;
+        }
+        
+        #studentimage {
+            height: 80px;
+            width: 80px;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(59, 55, 55);
+        }
+        
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            color: Black;
+            font-size: 14px;
+        }
+        
+        .form-item {
+            display: flex;
+            margin: auto;
+            align-items: center;
+            width: 80%;
+        }
+        
+        .form-item label {
+            width: 150px;
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .form-item input {
+            margin: 5px 15px;
+            height: 22px;
+            width: 100%;
+            font-size: 13px;
+            border: 1px black solid;
+            border-radius: 5px;
+        }
+        
+        .form-item select {
+            margin: 5px 0px;
+            width: max-content;
+        }
+        
+        .genders {
+            display: flex;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 16px;
+            font-size: 14px;
+        }
+        
+        .genders input {
+            width: 20px;
+        }
+        
+        hr {
+            margin-top: 15px;
+            width: 80%;
+        }
+        
+        h3 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .same-perm{
+            display: flex;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            font-size: 13px;
+            margin: 5px 105px;
+        }
+        
+        .register {
+            margin: 25px;
+            background: #1e90ff;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 7px 20px;
+            border-radius: 5px;
+            color: #fbfbfb;
+            border: 0;
+            cursor: pointer;
+        }
+        
+        .register:hover {
+            color: #3a3636;
+        }
+        
+        @media screen and (max-width: 640px) {
+            .container {
+                width: 90vw;
+                padding: 10px 5px;
+            }
+            .form-item label {
+                font-size: 14px;
+            }
+            .form-item input {
+                margin: 5px 10px;
+                font-size: 12px;
+            }
+            .genders {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+            .genders input {
+                width: 15px;
+            }
+            .same-perm{
+
+            font-size: 13px;
+            margin: 5px 50px;
+        }
+            .register {
+                margin: 25px;
+                font-size: 15px;
+                padding: 7px 10px;
+            }
+        }
+    
+    </style>
+    <script>
+         let pstate = document.querySelector("#pstate")
+    let pcity = document.querySelector("#pcity")
+    let pzip = document.querySelector("#pzip")
+    let pphonenumber = document.querySelector("#pphonenumber")
+
+    let tstate = document.querySelector("#tstate")
+    let tcity = document.querySelector("#tcity")
+    let tzip = document.querySelector("#tzip")
+    let tphonenumber = document.querySelector("#tphonenumber")
+
+    let sameaspermanent = document.querySelector("#sameaspermanent")
+    sameaspermanent.addEventListener('change', () => {
+            if (sameaspermanent.checked === true) {
+                tstate.value = pstate.value;
+                tcity.value = pcity.value;
+                tzip.value = pzip.value;
+                tphonenumber.value = pphonenumber.value;
+            } else if (sameaspermanent.checked === false) {
+                tstate.value = "";
+                tcity.value = "";
+                tzip.value = "";
+                tphonenumber.value = "";
+            }
+        })
+
+    </script>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h2>Student Registration From</h2>
+        <div class="form-wrapper">
+            <form action="">
+                <div class="form-item">
+                    <label for="fullname">Student Image:</label>
+                    <input type="file" name="studentimage" id="studentimage" required>
+                    <p>(less than 5 Mb)</p>
+                </div>
+                <div class="form-item">
+                    <label for="fullname">Student Name:</label>
+                    <input type="text" name="fullname" id="fullname" placeholder="Full Name" required>
+                </div>
+                <div class="form-item">
+                    <label for="username">Father's Name:</label>
+                    <input type="text" name="username" id="fathersname" placeholder="Father's Full Name" required>
+                </div>
+                <div class="form-item">
+                    <label for="username">Mother's Name:</label>
+                    <input type="text" name="username" id="mothersname" placeholder="Mother's Full Name" required>
+                </div>
+
+                <div class="form-item">
+                    <label for="gender">Gender:</label>
+                    <div class="genders">
+                        <p>Male</p> <input type="radio" name="gender" id="gender" value="male" required>
+                        <p>Female</p> <input type="radio" name="gender" id="gender" value="female">
+                        <p>Other</p> <input type="radio" name="gender" id="gender" value="other">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="email">Date of Birth</label>
+                    <input type="date" name="DOB" id="DOB" required>
+                </div>
+                <div class="form-item">
+                    <label for="email">E-mail:</label>
+                    <input type="email" name="email" id="email" placeholder="email@xyz.com" required>
+                </div>
+                <div class="form-item">
+                    <label for="level">Level:</label>
+                    <select name="level" id="level">
+                        <option value="highschool">High School</option>
+                        <option value="highschool">Bachelors </option>
+                        <option value="highschool">Masters</option>
+                        <option value="highschool">Phd</option>
+                    </select>
+                </div>
+                <div class="form-item">
+                    <label for="department">Department:</label>
+                    <select name="department" id="department">
+                        <option value="electrical">Electrical Engineering</option>
+                        <option value="electrical">Computer Engineering</option>
+                        <option value="electrical">Software Engineering</option>
+                        <option value="electrical">Civil Engineering</option>
+                    </select>
+                </div>
+
+                <div class="form-item">
+                    <label for="phonenumber">Tel/Mobile:</label>
+                    <input type="tel" name="phonenumber" id="phonenumber" placeholder="XXX XXX XXXX" required>
+                </div>
+                <hr>
+                <h3>Permanent Address</h3>
+                <div class="form-item">
+                    <label for="pstate">State:</label>
+                    <input type="text" name="pstate" id="pstate" placeholder="State" required>
+                </div>
+                <div class="form-item">
+                    <label for="pcity">City:</label>
+                    <input type="text" name="pcity" id="pcity" placeholder="City" required>
+                </div>
+                <div class="form-item">
+                    <label for="pzip">Zip Code:</label>
+                    <input type="number" name="pzip" id="pzip" placeholder="Zip Code" required>
+                </div>
+                <div class="form-item">
+                    <label for="pphonenumber">Tel/Mobile:</label>
+                    <input type="tel" name="pphonenumber" id="pphonenumber" placeholder="XXX XXX XXXX" required>
+                </div>
+                <hr>
+                <h3>Temporary Address</h3>
+                <div class="same-perm">
+                    <label for="sameaspermanent">Same as Permanent Address:</label> <input type="checkbox" name="sameaspermanent" id="sameaspermanent">
+                </div>
+                <div class="form-item">
+                    <label for="tstate">State:</label>
+                    <input type="text" name="tstate" id="tstate" placeholder="State" required>
+                </div>
+                <div class="form-item">
+                    <label for="tcity">City:</label>
+                    <input type="text" name="tcity" id="tcity" placeholder="City" required>
+                </div>
+                <div class="form-item">
+                    <label for="tzip">Zip Code:</label>
+                    <input type="number" name="tzip" id="tzip" placeholder="Zip Code" required>
+                </div>
+                <div class="form-item">
+                    <label for="tphonenumber">Tel/Mobile:</label>
+                    <input type="tel" name="tphonenumber" id="tphonenumber" placeholder="XXX XXX XXXX" required>
+                </div>
+
+                <button class="register" type="submit">Register</button>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
